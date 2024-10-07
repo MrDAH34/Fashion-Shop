@@ -29,7 +29,8 @@
                                             <th>Price</th>
                                             <th>Sizes</th>
                                             <th>Image</th>
-                                            <th>Action</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -42,7 +43,8 @@
                                             <th>Price</th>
                                             <th>Sizes</th>
                                             <th>Image</th>
-                                            <th>Action</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -54,11 +56,9 @@
                                             <td th:text="${product.description}"></td>
                                             <td th:text="${product.price}"></td>
                                             <td th:text="${product.sizes}"></td>
-                                            <td><img th:src="@{${product.imgUrl}}" alt="He he" class="h-25 w-25 rounded"></td>
-                                            <td class="d-flex justify-content-center flex-column">
-                                                <a th:href="@{/products/{productId}/edit (productId=${product.id})}" class="btn btn-primary mb-2">Edit</a>
-                                                <a th:href="@{/products/{productId}/delete (productId=${product.id})}" class="btn btn-danger">Delete</a>
-                                            </td>
+                                            <td><img th:src="@{${product.imgUrl}}" alt="He he" class="h-23 w-50 rounded"></td>
+                                            <td><a th:href="@{/products/{productId}/edit (productId=${product.id})}" class="btn btn-primary mb-2">Edit</a></td>
+                                            <td><a th:href="@{/products/{productId}/delete (productId=${product.id})}" class="btn btn-danger">Delete</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
