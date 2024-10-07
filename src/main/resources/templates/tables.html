@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+                layout:decorate=~{admin_view}>
+<body>
+                <!-- Begin Page Content -->
+                <div class="container-fluid" layout:fragment="admin_view">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Product Tables</h1>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6 class="m-0 font-weight-bold text-primary col-6">Product Data</h6>
+                                <a th:href=@{/products/create} class="btn btn-success">Add</a>
+                            </div>
+                            
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th>Id</th>
+                                            <th>Product name</th>
+                                            <th>Brand name</th>
+                                            <th>In stock</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                            <th>Sizes</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr class="text-center">
+                                            <th>Id</th>
+                                            <th>Product name</th>
+                                            <th>Brand name</th>
+                                            <th>In stock</th>
+                                            <th>Description</th>
+                                            <th>Price</th>
+                                            <th>Sizes</th>
+                                            <th>Image</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr th:each="product : ${products}" class="text-center">
+                                            <td th:text="${product.id}"></td>
+                                            <td th:text="${product.name}"></td>
+                                            <td th:text="${product.brandName}"></td>
+                                            <td th:text="${product.isInStock}"></td>
+                                            <td th:text="${product.description}"></td>
+                                            <td th:text="${product.price}"></td>
+                                            <td th:text="${product.sizes}"></td>
+                                            <td><img th:src="@{${product.imgUrl}}" alt="He he" class="h-25 w-25 rounded"></td>
+                                            <td class="d-flex justify-content-center flex-column">
+                                                <a th:href="@{/products/{productId}/edit (productId=${product.id})}" class="btn btn-primary mb-2">Edit</a>
+                                                <a th:href="@{/products/{productId}/delete (productId=${product.id})}" class="btn btn-danger">Delete</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+</body>
+
+</html>

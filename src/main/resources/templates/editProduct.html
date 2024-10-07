@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate=~{admin_view}>
+
+<body>
+    <div class="container mt-5" layout:fragment="admin_view">
+        <h2 class="mb-4">Chỉnh sửa dữ liệu sản phẩm</h2>
+        <form role="form" method="post" th:action="@{/products/{productId}/edit(productId=${product.id})}"
+            th:object="${product}">
+            <div class="mb-3">
+                <label for="name" class="form-label">Tên sản phẩm</label>
+                <input type="text" class="form-control" id="name" placeholder="Nhập tên sản phẩm"
+                    value="Tên sản phẩm cũ" th:field="*{name}" required>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Mô tả sản phẩm</label>
+                <input type="text" class="form-control" id="description" placeholder="Nhập mô tả sản phẩm"
+                    value="Mô tả sản phẩm cũ" th:field="*{description}" required>
+            </div>
+            <div class="mb-3">
+                <label for="gender" class="form-label">Đối tượng khách hàng</label>
+                <input type="text" class="form-control" id="gender" placeholder="Đối tượng khách hàng" value="Nam/Nữ"
+                    th:field="*{gender}" required>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Giá</label>
+                <input type="number" class="form-control" id="price" placeholder="Giá" value="100.00"
+                    th:field="*{price}" required>
+            </div>
+            <div class="mb-3">
+                <label for="imgUrl" class="form-label">Ảnh</label>
+                <input type="text" class="form-control" id="imgUrl" placeholder="URL ảnh"
+                    value="https://example.com/image.jpg" th:field="*{imgUrl}" required>
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Loại</label>
+                <input type="text" class="form-control" id="category" placeholder="Loại" value="Loại sản phẩm"
+                    th:field="*{category}" required>
+            </div>
+            <div class="mb-3">
+                <label for="brandName" class="form-label">Tên nhãn hàng</label>
+                <input type="text" class="form-control" id="brandName" placeholder="Nhập tên nhãn hàng"
+                    value="Nhãn hàng cũ" th:field="*{brandName}" required>
+            </div>
+            <div class="mb-3">
+                <label for="sizes" class="form-label">Sizes</label>
+                <input type="text" class="form-control" id="sizes" placeholder="Nhập tên nhãn hàng" value="Nhãn hàng cũ"
+                    th:field="*{sizes}" required>
+            </div>
+            <div class="mb-3 text-end">
+                <button type="submit" class="btn btn-primary">Cập nhật</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
