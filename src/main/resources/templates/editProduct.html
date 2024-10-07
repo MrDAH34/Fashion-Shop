@@ -47,8 +47,9 @@
                 <input type="text" class="form-control" id="sizes" placeholder="Nhập tên nhãn hàng" value="Nhãn hàng cũ"
                     th:field="*{sizes}" required>
             </div>
-            <div class="mb-3 text-end">
-                <button type="submit" class="btn btn-primary">Cập nhật</button>
+            <div class="mb-3 text-center">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a th:href="@{/products/tables}" class="btn btn-danger">Cancel</a>
             </div>
         </form>
     </div>

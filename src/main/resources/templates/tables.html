@@ -54,7 +54,7 @@
                                             <td th:text="${product.brandName}"></td>
                                             <td th:text="${product.isInStock}"></td>
                                             <td th:text="${product.description}"></td>
-                                            <td th:text="${product.price}"></td>
+                                            <td th:text="${product.formatPrice()}" style="white-space: nowrap;"></td>
                                             <td th:text="${product.sizes}"></td>
                                             <td><img th:src="@{${product.imgUrl}}" alt="He he" class="h-23 w-50 rounded"></td>
                                             <td><a th:href="@{/products/{productId}/edit (productId=${product.id})}" class="btn btn-primary mb-2">Edit</a></td>

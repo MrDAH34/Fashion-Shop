@@ -1,5 +1,6 @@
 package com.project.FashionShop.model;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -125,4 +126,8 @@ public class Product {
         this.imgUrl = imgUrl;
     }
 
+    public String formatPrice() {
+        DecimalFormat formatter = new DecimalFormat("#,### đ");
+        return formatter.format(this.price);
+    }
 }
